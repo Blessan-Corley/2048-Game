@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">2048</h1>
+        <p class="subtitle">Join tiles to reach 2048!</p>
+        
+        <div class="score-container">
+            <div class="score-box">
+                <div class="score-label">SCORE</div>
+                <div class="score-value" id="score">0</div>
+            </div>
+            <div class="score-box">
+                <div class="score-label">BEST</div>
+                <div class="score-value" id="best-score">0</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="game.newGame()">New Game</button>
+            <button class="btn btn-secondary" onclick="game.undo()">Undo</button>
+            <button class="btn btn-warning" onclick="game.toggleAutoSave()">Auto Save: <span id="auto-save-status">ON</span></button>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <div class="grid-container" id="grid-container">
+            <div class="grid-row">
+                <div class="grid-cell" data-row="0" data-col="0"></div>
+                <div class="grid-cell" data-row="0" data-col="1"></div>
+                <div class="grid-cell" data-row="0" data-col="2"></div>
+                <div class="grid-cell" data-row="0" data-col="3"></div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-cell" data-row="1" data-col="0"></div>
+                <div class="grid-cell" data-row="1" data-col="1"></div>
+                <div class="grid-cell" data-row="1" data-col="2"></div>
+                <div class="grid-cell" data-row="1" data-col="3"></div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-cell" data-row="2" data-col="0"></div>
+                <div class="grid-cell" data-row="2" data-col="1"></div>
+                <div class="grid-cell" data-row="2" data-col="2"></div>
+                <div class="grid-cell" data-row="2" data-col="3"></div>
+            </div>
+            <div class="grid-row">
+                <div class="grid-cell" data-row="3" data-col="0"></div>
+                <div class="grid-cell" data-row="3" data-col="1"></div>
+                <div class="grid-cell" data-row="3" data-col="2"></div>
+                <div class="grid-cell" data-row="3" data-col="3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h3>HOW TO PLAY</h3>
+        <p>Use arrow keys to move tiles. When two tiles with the same number touch, they merge into one!</p>
+        <p><strong>Goal:</strong> Create a tile with the number 2048</p>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div class="game-over-overlay" id="game-over-overlay">
+        <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p>Your final score: <span id="final-score">0</span></p>
+            <button class="btn btn-primary" onclick="game.newGame(); this.parentElement.parentElement.style.display = 'none';">Try Again</button>
+        </div>
+    </div>
+
+    <!-- Win Overlay -->
+    <div class="win-overlay" id="win-overlay">
+        <div class="overlay-content">
+            <h2>🎉 You Win! 🎉</h2>
+            <p>You reached 2048! Keep playing to get an even higher score.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+                <button class="btn btn-primary" onclick="game.newGame(); this.parentElement.parentElement.parentElement.style.display = 'none';">New Game</button>
+                <button class="btn btn-secondary" onclick="this.parentElement.parentElement.parentElement.style.display = 'none';">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
