@@ -9,11 +9,11 @@
 <body>
     <div class="header">
         <h1 class="title">2048</h1>
-        <p class="subtitle">Join tiles to reach 2048!</p>
+        <p class="subtitle">Reach 2048 if you can!</p>
         
         <div class="score-container">
             <div class="score-box">
-                <div class="score-label">SCORE</div>
+                <div class="score-label">NOW</div>
                 <div class="score-value" id="score">0</div>
             </div>
             <div class="score-box">
@@ -61,13 +61,13 @@
     <div class="instructions">
         <h3>HOW TO PLAY</h3>
         <p>Use arrow keys to move tiles. When two tiles with the same number touch, they merge into one!</p>
-        <p><strong>Goal:</strong> Create a tile with the number 2048</p>
+        <p><strong>Goal:</strong> Create a tile with the number 2048 (Prolly you wont)</p>
     </div>
 
     <!-- Game Over Overlay -->
     <div class="game-over-overlay" id="game-over-overlay">
         <div class="overlay-content">
-            <h2>Game Over!</h2>
+            <h2>Thats all you can do</h2>
             <p>Your final score: <span id="final-score">0</span></p>
             <button class="btn btn-primary" onclick="game.newGame(); this.parentElement.parentElement.style.display = 'none';">Try Again</button>
         </div>
@@ -76,7 +76,7 @@
     <!-- Win Overlay -->
     <div class="win-overlay" id="win-overlay">
         <div class="overlay-content">
-            <h2>🎉 You Win! 🎉</h2>
+            <h2>🎉 Woah you made it! 🎉</h2>
             <p>You reached 2048! Keep playing to get an even higher score.</p>
             <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
                 <button class="btn btn-primary" onclick="game.newGame(); this.parentElement.parentElement.parentElement.style.display = 'none';">New Game</button>
