@@ -152,7 +152,7 @@ class Game2048 {
             this.updateDisplay();
             this.saveGame();
 
-            // Add merge animation
+            
             setTimeout(() => {
                 mergedCells.forEach(cell => {
                     const tileElement = this.getTileElement(cell.row, cell.col);
@@ -163,7 +163,7 @@ class Game2048 {
                 });
             }, 150);
 
-            // Check win/lose conditions
+            
             if (this.checkWin() && !this.hasWon) {
                 this.hasWon = true;
                 setTimeout(() => {
@@ -223,7 +223,7 @@ class Game2048 {
      * @returns {boolean}
      */
     isGameOver() {
-        // Check for empty cells
+        
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
                 if (this.grid[i][j] === 0) {
@@ -232,7 +232,7 @@ class Game2048 {
             }
         }
 
-        // Check for possible merges
+        
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
                 const current = this.grid[i][j];
@@ -305,11 +305,11 @@ class Game2048 {
     updateDisplay() {
         const container = document.getElementById('grid-container');
         
-        // Remove existing tiles
+        
         const existingTiles = container.querySelectorAll('.tile');
         existingTiles.forEach(tile => tile.remove());
 
-        // Add new tiles
+        
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
                 if (this.grid[i][j] !== 0) {
@@ -331,10 +331,10 @@ class Game2048 {
             }
         }
 
-        // Update score display
+        
         document.getElementById('score').textContent = this.score;
         
-        // Update best score
+        
         if (this.score > this.bestScore) {
             this.bestScore = this.score;
             localStorage.setItem('2048-best-score', this.bestScore);
@@ -346,7 +346,7 @@ class Game2048 {
      * Bind keyboard and touch events
      */
     bindEvents() {
-        // Keyboard events
+        
         document.addEventListener('keydown', (e) => {
             switch(e.key) {
                 case 'ArrowLeft':
@@ -368,7 +368,7 @@ class Game2048 {
             }
         });
 
-        // Touch events for mobile support
+        
         let startX, startY;
         const container = document.getElementById('grid-container');
         
@@ -386,7 +386,7 @@ class Game2048 {
             const diffX = startX - endX;
             const diffY = startY - endY;
             
-            // Determine swipe direction
+            
             if (Math.abs(diffX) > Math.abs(diffY)) {
                 if (diffX > 50) {
                     this.move('left');
@@ -407,7 +407,7 @@ class Game2048 {
     }
 }
 
-// Professional console branding
+
 function displayDeveloperCredits() {
     console.log('%c┌────────────────────────────────────────────┐', 'color: #667eea; font-size: 14px;');
     console.log('%c│                                            │', 'color: #667eea; font-size: 14px;');
@@ -422,11 +422,11 @@ function displayDeveloperCredits() {
     console.log('%c└────────────────────────────────────────────┘', 'color: #667eea; font-size: 14px;');
 }
 
-// Initialize game when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Display developer credits in console
+    
     displayDeveloperCredits();
     
-    // Initialize game
+    
     window.game = new Game2048();
 });
