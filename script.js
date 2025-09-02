@@ -417,8 +417,6 @@ function displayDeveloperCredits() {
     console.log('%c│                                            │', 'color: #667eea; font-size: 14px;');
     console.log('%c│           Enjoy the Game!                  │', 'color: #4facfe; font-size: 14px; font-weight: 600;');
     console.log('%c│                                            │', 'color: #667eea; font-size: 14px;');
-    console.log('%c│    Built with: HTML5, CSS3 & Vanilla JS       │', 'color: #f5576c; font-size: 13px; font-style: italic;');
-    console.log('%c│                                            │', 'color: #667eea; font-size: 14px;');
     console.log('%c└────────────────────────────────────────────┘', 'color: #667eea; font-size: 14px;');
 }
 
